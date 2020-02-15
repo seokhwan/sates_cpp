@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
-// Copyright (C) 2018, Seokhwan Kim (kim at seokhwan.net)
+// Copyright (C) 2018 - Present, Seokhwan Kim (kim at seokhwan.net)
 // This file is part of "the SATES"
 // For conditions of distribution and use, see copyright notice in 
-// sates/sates_test_cpp_deploy.h
+// sates/sates.h
 //------------------------------------------------------------------------------
 
 #include <sates/sates_test_cpp_deploy.h>
@@ -15,14 +15,36 @@
 #include <sates/internal_use/test_log.h>
 #endif
 
-static float32_t _sates_test_help_float32_eq = 0.00001F;
-static float64_t _sates_test_help_float64_eq = 0.00001;
+static float _sates_test_help_float_eq = 1E-10F;
+static double _sates_test_help_double_eq = 1E-10;
 
 static uint32_t tc_err_cnt = 0U;
 static uint32_t num_of_tc = 0U;
 
+namespace sates
+{
+	void set_float_eq_threshold(float val)
+	{
+		_sates_test_help_float_eq = val;
+	}
 
-static float32_t _sates_test_help_abs(float32_t val)
+	void set_double_eq_threshold(double val)
+	{
+		_sates_test_help_double_eq = val;
+	}
+
+	float get_float_eq_threshold()
+	{
+		return _sates_test_help_float_eq;
+	}
+
+	double get_double_eq_threshold()
+	{
+		return _sates_test_help_double_eq;
+	}
+}
+
+static float _sates_test_help_abs(float val)
 {
 	if (val < 0.0F)
 	{
@@ -31,23 +53,13 @@ static float32_t _sates_test_help_abs(float32_t val)
 	return val;
 }
 
-static float64_t _sates_test_help_abs(float64_t val)
+static double _sates_test_help_abs(double val)
 {
 	if (val < 0.0)
 	{
 		val = val * -1.0;
 	}
 	return val;
-}
-
-void sates_set_float32_eq_threshold(float32_t val)
-{
-	_sates_test_help_float32_eq = val;
-}
-
-void sates_set_float64_eq_threshold(float64_t val)
-{
-	_sates_test_help_float64_eq = val;
 }
 
 void _sates_test_help_eval_impl(bool expr, int line, const char* p_file_name)
@@ -83,34 +95,34 @@ void _sates_test_help_eval_impl(bool expr, int line, const char* p_file_name)
 	}
 }
 
-void _sates_test_help_eval_impl_eq_float32(float32_t val1, float32_t val2, int line, const char* p_file_name)
+void _sates_test_help_eval_impl_eq_float(float val1, float val2, int line, const char* p_file_name)
 {
 	_sates_test_help_eval_impl(
-		(_sates_test_help_abs(val1 - val2) <= _sates_test_help_float32_eq),
+		(_sates_test_help_abs(val1 - val2) <= _sates_test_help_float_eq),
 		line,
 		p_file_name);
 }
 
-void _sates_test_help_eval_impl_ne_float32(float32_t val1, float32_t val2, int line, const char* p_file_name)
+void _sates_test_help_eval_impl_ne_float(float val1, float val2, int line, const char* p_file_name)
 {
 	_sates_test_help_eval_impl(
-		(_sates_test_help_abs(val1 - val2) > _sates_test_help_float32_eq),
+		(_sates_test_help_abs(val1 - val2) > _sates_test_help_float_eq),
 		line,
 		p_file_name);
 }
 
-void _sates_test_help_eval_impl_eq_float64(float32_t val1, float32_t val2, int line, const char* p_file_name)
+void _sates_test_help_eval_impl_eq_double(double val1, double val2, int line, const char* p_file_name)
 {
 	_sates_test_help_eval_impl(
-		(_sates_test_help_abs(val1 - val2) <= _sates_test_help_float64_eq),
+		(_sates_test_help_abs(val1 - val2) <= _sates_test_help_double_eq),
 		line,
 		p_file_name);
 }
 
-void _sates_test_help_eval_impl_ne_float64(float32_t val1, float32_t val2, int line, const char* p_file_name)
+void _sates_test_help_eval_impl_ne_double(double val1, double val2, int line, const char* p_file_name)
 {
 	_sates_test_help_eval_impl(
-		(_sates_test_help_abs(val1 - val2) > _sates_test_help_float64_eq),
+		(_sates_test_help_abs(val1 - val2) > _sates_test_help_double_eq),
 		line,
 		p_file_name);
 }

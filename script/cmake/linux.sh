@@ -14,4 +14,3 @@ cd ../release
 cmake ../../code -DSATES_LINUX:STRING=yes -DCMAKE_BUILD_TYPE="Release"
 
 cd $CUR_DIR
-

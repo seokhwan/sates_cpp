@@ -1,3 +1,9 @@
+//------------------------------------------------------------------------------
+// Copyright (C) 2018 - Present, Seokhwan Kim (kim at seokhwan.net)
+// This file is part of "the SATES"
+// For conditions of distribution and use, see copyright notice in 
+// sates/sates.h
+//------------------------------------------------------------------------------
 
 #include <sates/internal_use/test_runner.h>
 #include <sates/internal_use/common_func.h>
@@ -9,13 +15,12 @@ namespace sates
 {
 	namespace internal_use
 	{
+		static TEST_RESULT g_test_result = TEST_RESULT::OK;
 		static void run_one_test_case(testcode* p_code)
 		{
 			test_log::start_new_test();
 
-			p_code->init();
 			p_code->run();
-			p_code->terminate();
 			if (test_log::is_err_occurred())
 			{
 				p_code->set_result(sates::internal_use::TEST_RESULT::NG);
@@ -23,6 +28,7 @@ namespace sates
 				{
 					p_code->add_err_log(iter);
 				}
+				g_test_result = TEST_RESULT::NG;
 			}
 			else
 			{
@@ -62,7 +68,7 @@ namespace sates
 			}
 		}
 
-		void test_runner::run(std::vector<std::string>* p_inc_list,
+		TEST_RESULT test_runner::run(std::vector<std::string>* p_inc_list,
 			std::vector<std::string>* p_exc_list,
 			std::map<std::string, testcode*>* p_map)
 		{
@@ -78,6 +84,7 @@ namespace sates
 			{
 				run_all_test(p_map);
 			}
+			return g_test_result;
 		}
 	}
 }

@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
-// Copyright (C) 2018, Seokhwan Kim (kim at seokhwan.net)
+// Copyright (C) 2018 - Present, Seokhwan Kim (kim at seokhwan.net)
 // This file is part of "the SATES"
 // For conditions of distribution and use, see copyright notice in 
-// sates/sates_test_cpp_deploy.h
+// sates/sates.h
 //------------------------------------------------------------------------------
 
 #include <sates/internal_use/testcode.h>
@@ -13,6 +13,25 @@ namespace sates
 {
 namespace internal_use
 {
+
+std::string test_result_to_string(TEST_RESULT tr)
+{
+	std::string retval("");
+	if (TEST_RESULT::INVALID == tr)
+	{
+		retval = "TEST_RESULT::INVALID";
+	}
+	else if (TEST_RESULT::OK == tr)
+	{
+		retval = "TEST_RESULT::OK";
+	}
+	else if (TEST_RESULT::NG == tr)
+	{
+		retval = "TEST_RESULT::NG";
+	}
+	return retval;
+}
+
 testcode::testcode()
 {
 	m_test_case_name = "";
@@ -20,9 +39,7 @@ testcode::testcode()
 }
 
 testcode::~testcode() {}
-void testcode::init() {}
 void testcode::run() {}
-void testcode::terminate() {}
 
 void testcode::set_result(TEST_RESULT test_result)
 {
@@ -44,12 +61,12 @@ TEST_RESULT testcode::get_result() const
 	return m_result;
 }
 
-const char_t* testcode::get_test_case_name() const
+const char* testcode::get_test_case_name() const
 {
 	return m_test_case_name.c_str();
 }
 
-void testcode::print(const char* p_outfile)
+void testcode::print(std::ofstream* p_outfile)
 {
 	std::vector<std::string> result_str;
 	result_str.push_back("\n");
@@ -91,6 +108,13 @@ void testcode::print(const char* p_outfile)
 		for (auto str : result_str)
 		{
 			std::cout << str;
+		}
+	}
+	else
+	{
+		for (auto str : result_str)
+		{
+			(*p_outfile) << str;
 		}
 	}
 }

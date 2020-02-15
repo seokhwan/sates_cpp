@@ -1,3 +1,10 @@
+//------------------------------------------------------------------------------
+// Copyright (C) 2018 - Present, Seokhwan Kim (kim at seokhwan.net)
+// This file is part of "the SATES"
+// For conditions of distribution and use, see copyright notice in 
+// sates/sates.h
+//------------------------------------------------------------------------------
+
 #include <sates/sates_test_cpp_deploy.h>
 #include <sates/internal_use/testcode_list.h>
 namespace sates

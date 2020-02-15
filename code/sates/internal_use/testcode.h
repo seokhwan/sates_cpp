@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
-// Copyright (C) 2018, Seokhwan Kim (kim at seokhwan.net)
+// Copyright (C) 2018 - Present, Seokhwan Kim (kim at seokhwan.net)
 // This file is part of "the SATES"
 // For conditions of distribution and use, see copyright notice in 
-// sates/sates_test_cpp_deploy.h
+// sates/sates.h
 //------------------------------------------------------------------------------
 
 #ifndef __SATES_INTERNAL_USE_TESTCODE_H__
@@ -11,6 +11,7 @@
 #include <sates/define.h>
 #include <vector>
 #include <string>
+#include <fstream>
 
 namespace sates
 {
@@ -22,23 +23,25 @@ enum TEST_RESULT
 	OK = 20180417,
 	NG = 0,
 };
+
+std::string test_result_to_string(TEST_RESULT tr);
+
 class SATES_EXPORT testcode
 {
 public:
 	testcode();
 	virtual ~testcode();
-	virtual void init();
+
 	virtual void run();
-	virtual void terminate();
 
 	void set_result(TEST_RESULT test_result);
 	void add_err_log(const std::string& err_msg);
 	const std::vector<std::string>& get_err_log() const;
 	TEST_RESULT get_result() const;
 
-	const char_t* get_test_case_name() const;
+	const char* get_test_case_name() const;
 
-	void print(const char* p_outfile);
+	void print(std::ofstream* p_outfile);
 
 protected:
 	std::string m_test_case_name;

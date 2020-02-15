@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
-// Copyright (C) 2018, Seokhwan Kim (kim at seokhwan.net)
+// Copyright (C) 2018 - Present, Seokhwan Kim (kim at seokhwan.net)
 // This file is part of "the SATES"
 // For conditions of distribution and use, see copyright notice in 
-// sates/sates_test_cpp_deploy.h
+// sates/sates.h
 //------------------------------------------------------------------------------
 
 #ifndef __SATES_INTERNAL_USE_STDOUT_COLOR_H__

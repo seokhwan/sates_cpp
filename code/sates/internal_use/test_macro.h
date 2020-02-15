@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
-// Copyright (C) 2018, Seokhwan Kim (kim at seokhwan.net)
+// Copyright (C) 2018 - Present, Seokhwan Kim (kim at seokhwan.net)
 // This file is part of "the SATES"
 // For conditions of distribution and use, see copyright notice in 
-// sates/sates_test_cpp_deploy.h
+// sates/sates.h
 //------------------------------------------------------------------------------
 
 #ifndef __SATES_TEST_MACRO_H__
@@ -24,33 +24,26 @@
 #endif
 
 
-#define SATES_TEST_INIT(TEST_CASE_NAME) \
-        class TEST_CASE_NAME : public sates::internal_use::testcode \
+#define SATES_TEST_RUN(TEST_CASE_NAME) \
+        class __SaTeS_ClS_MaNgLe_##TEST_CASE_NAME : public sates::internal_use::testcode \
         { \
             public: \
-                TEST_CASE_NAME(); \
-                virtual ~TEST_CASE_NAME(); \
-                virtual void init(); \
+                __SaTeS_ClS_MaNgLe_##TEST_CASE_NAME(); \
+                virtual ~__SaTeS_ClS_MaNgLe_##TEST_CASE_NAME(); \
 				virtual void run(); \
-				virtual void terminate(); \
         }; \
         \
-        TEST_CASE_NAME* g_p_test_instance_##TEST_CASE_NAME \
-        = new TEST_CASE_NAME; \
-        TEST_CASE_NAME::TEST_CASE_NAME() \
+        __SaTeS_ClS_MaNgLe_##TEST_CASE_NAME* g_p_test_instance_##TEST_CASE_NAME \
+        = new __SaTeS_ClS_MaNgLe_##TEST_CASE_NAME; \
+        __SaTeS_ClS_MaNgLe_##TEST_CASE_NAME::__SaTeS_ClS_MaNgLe_##TEST_CASE_NAME() \
         { \
             m_test_case_name = #TEST_CASE_NAME; \
 			sates::internal_use::testcode_list::add_testcode(this); \
         } \
         \
-        TEST_CASE_NAME::~TEST_CASE_NAME() {} \
-        void TEST_CASE_NAME::init()
+        __SaTeS_ClS_MaNgLe_##TEST_CASE_NAME::~__SaTeS_ClS_MaNgLe_##TEST_CASE_NAME() {} \
+        void __SaTeS_ClS_MaNgLe_##TEST_CASE_NAME::run()
 
-#define SATES_TEST_RUN(TEST_CASE_NAME) \
-		void TEST_CASE_NAME::run()
-
-#define SATES_TEST_TERMINATE(TEST_CASE_NAME) \
-		void TEST_CASE_NAME::terminate()
 
 #endif // __SATES_TEST_MACRO_H__
 

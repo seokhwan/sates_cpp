@@ -1,3 +1,10 @@
+//------------------------------------------------------------------------------
+// Copyright (C) 2018 - Present, Seokhwan Kim (kim at seokhwan.net)
+// This file is part of "the SATES"
+// For conditions of distribution and use, see copyright notice in 
+// sates/sates.h
+//------------------------------------------------------------------------------
+
 #ifndef __SATES_INTERNAL_USE_TEST_LOG_H__
 #define __SATES_INTERNAL_USE_TEST_LOG_H__
 
