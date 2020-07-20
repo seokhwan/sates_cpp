@@ -9,15 +9,15 @@
 #define __SATES_TEST_CPP_DEPLOY_H__
 
 #ifdef SATES_NO_DEPLOY
-    #include <sates/internal_use/test_macro.h>
+    #include <sates/tc/test_case_gen.h>
 	namespace sates
 	{
-		SATES_EXPORT void include_list(const char* p_test_name);
-		SATES_EXPORT void exclude_list(const char* p_test_name);
-		SATES_EXPORT void init();
-		SATES_EXPORT void run();
+		SATES_EXPORT void enable(const char* p_test_name);
+		SATES_EXPORT void disable(const char* p_test_name);
+		SATES_EXPORT void init(int argc, const char** argv);
+		SATES_EXPORT void run_all_tests();
 		SATES_EXPORT void terminate();
-		SATES_EXPORT void print_result(const char* p_outfile);
+		SATES_EXPORT void print_result();
 		SATES_EXPORT void set_float_eq_threshold(float val);
 		SATES_EXPORT void set_double_eq_threshold(double val);
 

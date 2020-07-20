@@ -5,27 +5,26 @@
 // sates/sates.h
 //------------------------------------------------------------------------------
 
-#ifndef __SATES_INTERNAL_USE_TEST_RUNNER_H__
-#define __SATES_INTERNAL_USE_TEST_RUNNER_H__
+#ifndef __SATES_COMMON_ARG_SATES_OUTPUT_H__
+#define __SATES_COMMON_ARG_SATES_OUTPUT_H__
 
-#include <sates/internal_use/testcode.h>
-#include <vector>
+#include <sates/define.h>
 #include <string>
 #include <map>
+#include <vector>
 
 namespace sates
 {
-	namespace internal_use
+	namespace common
 	{
-		class test_runner
+		class SATES_EXPORT arg_sates_output
 		{
 		public:
-            static TEST_RESULT run(std::vector<std::string>* p_inc_list,
-                std::vector<std::string>* p_exc_list,
-				std::map<std::string, testcode*>* p_map);
+			static void fill_data(std::map<std::string, std::vector<std::string>>& data_map,const std::string& str_data);
+			static const std::string str_option;
 		};
 	}
 }
 
-#endif // __SATES_INTERNAL_USE_TEST_RUNNER_H__
+#endif // __SATES_COMMON_ARG_SATES_OUTPUT_H__
 

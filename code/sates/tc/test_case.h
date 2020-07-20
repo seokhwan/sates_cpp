@@ -5,27 +5,34 @@
 // sates/sates.h
 //------------------------------------------------------------------------------
 
-#ifndef __SATES_INTERNAL_USE_TEST_LOG_H__
-#define __SATES_INTERNAL_USE_TEST_LOG_H__
+#ifndef __SATES_TC_TEST_CASE_H__
+#define __SATES_TC_TEST_CASE_H__
 
 #include <sates/define.h>
 #include <vector>
 #include <string>
+#include <fstream>
 
 namespace sates
 {
-	namespace internal_use
-	{
-		class test_log
-		{
-		public:
-			static void start_new_test();
-			static void error(const std::string& error_message);
-			static bool is_err_occurred();
-			static std::vector<std::string>* get_accumulated_logs();
-		};
-	}
+namespace tc
+{
+
+class SATES_EXPORT test_case
+{
+public:
+	test_case();
+	virtual ~test_case();
+
+	virtual void run();
+
+	const char* get_test_case_name() const;
+
+
+protected:
+	std::string m_test_case_name;
+};
+}
 }
 
-#endif // __SATES_INTERNAL_USE_TEST_LOG_H__
-
+#endif // __SATES_TC_TEST_CASE_H__

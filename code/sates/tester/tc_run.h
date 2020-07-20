@@ -5,13 +5,23 @@
 // sates/sates.h
 //------------------------------------------------------------------------------
 
-#include <sates/sates.h>
+#ifndef __SATES_TESTER_TC_RUNNER_H__
+#define __SATES_TESTER_TC_RUNNER_H__
 
-int main(int argc, const char** argv)
+#include <sates/define.h>
+
+
+namespace sates
 {
-    sates::init(argc, argv);
-    sates::run_all_tests ();
-    sates::print_result();
-    sates::terminate();
-    return 0;
+namespace tester
+{
+class SATES_EXPORT tc_runner
+{
+public:
+    static void run();
+};
 }
+}
+
+#endif // __SATES_TESTER_TC_RUNNER_H__
+

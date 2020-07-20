@@ -8,28 +8,34 @@
 #include <sates/sates.h>
 
 
-SATES_TEST_RUN(T1)
+SATES_TEST_RUN(TC_NG_01)
 {
     SATES_EQ(0, 1);
+    SATES_NE(1, 1);
+    SATES_TRUE(false);
 }
 
-
-SATES_TEST_RUN(T2)
+SATES_TEST_RUN(TC_NG_02)
 {
     SATES_EQ(0, 1);
+    SATES_NE(1, 1);
+    SATES_TRUE(false);
 }
 
-SATES_TEST_RUN(T3)
+SATES_TEST_RUN(TC_OK_03)
 {
-    SATES_EQ(0, 0);
+    SATES_EQ(1, 1);
 }
 
+const char* custom_arg[] = { {"prog.exe"}, {"--sates_output=\"xml:result.xml\""} };
 
-int main(int argc, char** argv)
+int main(int argc, const char** argv)
 {
-    sates::init();
-    sates::run();
-    sates::print_result(nullptr);
+    //sates::init(argc, argv);
+
+    sates::init(2, custom_arg);
+    sates::run_all_tests();
+    sates::print_result();
     sates::terminate();
     return 0;
 }

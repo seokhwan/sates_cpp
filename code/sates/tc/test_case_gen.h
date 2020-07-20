@@ -5,11 +5,11 @@
 // sates/sates.h
 //------------------------------------------------------------------------------
 
-#ifndef __SATES_TEST_MACRO_H__
-#define __SATES_TEST_MACRO_H__
+#ifndef __SATES_TEST_CASE_GEN_H__
+#define __SATES_TEST_CASE_GEN_H__
 
-#include <sates/internal_use/testcode.h>
-#include <sates/internal_use/testcode_list.h>
+#include <sates/tc/test_case.h>
+#include <sates/tc/test_case_list.h>
 
 #ifdef SATES_TEST_INIT
 #undef SATES_TEST_INIT
@@ -25,7 +25,7 @@
 
 
 #define SATES_TEST_RUN(TEST_CASE_NAME) \
-        class __SaTeS_ClS_MaNgLe_##TEST_CASE_NAME : public sates::internal_use::testcode \
+        class __SaTeS_ClS_MaNgLe_##TEST_CASE_NAME : public sates::tc::test_case \
         { \
             public: \
                 __SaTeS_ClS_MaNgLe_##TEST_CASE_NAME(); \
@@ -38,12 +38,12 @@
         __SaTeS_ClS_MaNgLe_##TEST_CASE_NAME::__SaTeS_ClS_MaNgLe_##TEST_CASE_NAME() \
         { \
             m_test_case_name = #TEST_CASE_NAME; \
-			sates::internal_use::testcode_list::add_testcode(this); \
+			sates::tc::test_case_list::add_test_case(this); \
         } \
         \
         __SaTeS_ClS_MaNgLe_##TEST_CASE_NAME::~__SaTeS_ClS_MaNgLe_##TEST_CASE_NAME() {} \
         void __SaTeS_ClS_MaNgLe_##TEST_CASE_NAME::run()
 
 
-#endif // __SATES_TEST_MACRO_H__
+#endif // __SATES_TEST_CASE_GEN_H__
 

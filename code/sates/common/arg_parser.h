@@ -5,8 +5,8 @@
 // sates/sates.h
 //------------------------------------------------------------------------------
 
-#ifndef __SATES_INTERNAL_USE_COMMON_FUNC_H__
-#define __SATES_INTERNAL_USE_COMMON_FUNC_H__
+#ifndef __SATES_COMMON_ARG_PARSER_H__
+#define __SATES_COMMON_ARG_PARSER_H__
 
 #include <sates/define.h>
 #include <vector>
@@ -14,11 +14,16 @@
 
 namespace sates
 {
-	namespace internal_use
-	{
-		bool is_in_the_list(const char* p_test_case_name, std::vector<std::string>* p_list);
-	}
+namespace common
+{
+class SATES_EXPORT arg_parser
+{
+public:
+	static void parse(int argc, const char** argv);
+	static void get_arg(const std::string& str_option, std::vector<std::string>& vec);
+};
+}
 }
 
-#endif // __SATES_INTERNAL_USE_COMMON_FUNC_H__
+#endif // __SATES_COMMON_ARG_PARSER_H__
 

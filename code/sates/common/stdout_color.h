@@ -5,17 +5,18 @@
 // sates/sates.h
 //------------------------------------------------------------------------------
 
-#ifndef __SATES_INTERNAL_USE_STDOUT_COLOR_H__
-#define __SATES_INTERNAL_USE_STDOUT_COLOR_H__
+#ifndef __SATES_COMMON_STDOUT_COLOR_H__
+#define __SATES_COMMON_STDOUT_COLOR_H__
 
 #include <sates/define.h>
 #include <string>
 
 namespace sates
 {
-namespace internal_use 
+namespace common 
 {
-enum CONSOLE_COLOR
+
+enum class CONSOLE_COLOR
 {
     CONSOLE_COLOR_RED,
     CONSOLE_COLOR_GREEN,
@@ -32,4 +33,4 @@ SATES_EXPORT void clear_stdout_color();
 }
 }
 
-#endif // __SATES_INTERNAL_USE_STDOUT_COLOR_H__
+#endif // __SATES_COMMON_STDOUT_COLOR_H__

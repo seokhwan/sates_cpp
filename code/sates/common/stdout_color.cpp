@@ -5,12 +5,12 @@
 // sates/sates.h
 //------------------------------------------------------------------------------
 
-#include <sates/internal_use/stdout_color.h>
+#include "stdout_color.h"
 #include <iostream>
 
 namespace sates 
 {
-namespace internal_use
+namespace common
 {
 
 std::string g_color_code_string;
@@ -19,19 +19,19 @@ void set_stdout_color(CONSOLE_COLOR text_color, CONSOLE_COLOR background_color)
 {
 	switch (text_color)
 	{
-	case CONSOLE_COLOR_RED:
+	case CONSOLE_COLOR::CONSOLE_COLOR_RED:
 		g_color_code_string = "\033[0;31;";
 		break;
-	case CONSOLE_COLOR_GREEN:
+	case CONSOLE_COLOR::CONSOLE_COLOR_GREEN:
 		g_color_code_string = "\033[0;32;";
 		break;
-	case CONSOLE_COLOR_BLUE:
+	case CONSOLE_COLOR::CONSOLE_COLOR_BLUE:
 		g_color_code_string = "\033[0;34;";
 		break;
-	case CONSOLE_COLOR_WHITE:
+	case CONSOLE_COLOR::CONSOLE_COLOR_WHITE:
 		g_color_code_string = "\033[0;37;";
 		break;
-	case CONSOLE_COLOR_BLACK:
+	case CONSOLE_COLOR::CONSOLE_COLOR_BLACK:
 		g_color_code_string = "\033[0;30;";
 		break;
 	default:
@@ -41,19 +41,19 @@ void set_stdout_color(CONSOLE_COLOR text_color, CONSOLE_COLOR background_color)
 
 	switch (background_color)
 	{
-	case CONSOLE_COLOR_RED:
+	case CONSOLE_COLOR::CONSOLE_COLOR_RED:
 		g_color_code_string += "41m";
 		break;
-	case CONSOLE_COLOR_GREEN:
+	case CONSOLE_COLOR::CONSOLE_COLOR_GREEN:
 		g_color_code_string += "42m";
 		break;
-	case CONSOLE_COLOR_BLUE:
+	case CONSOLE_COLOR::CONSOLE_COLOR_BLUE:
 		g_color_code_string += "44m";
 		break;
-	case CONSOLE_COLOR_WHITE:
+	case CONSOLE_COLOR::CONSOLE_COLOR_WHITE:
 		g_color_code_string += "47m";
 		break;
-	case CONSOLE_COLOR_BLACK:
+	case CONSOLE_COLOR::CONSOLE_COLOR_BLACK:
 		g_color_code_string += "40m";
 		break;
 	default:

@@ -11,8 +11,7 @@
 #include <string>
 
 #ifdef SATES_NO_DEPLOY
-#include <sates/internal_use/stdout_color.h>
-#include <sates/internal_use/test_log.h>
+#include <sates/tc/tc_result_temporal_storage.h>
 #endif
 
 static float _sates_test_help_float_eq = 1E-10F;
@@ -67,30 +66,14 @@ void _sates_test_help_eval_impl(bool expr, int line, const char* p_file_name)
 	num_of_tc++;
 	if (!(expr))
 	{
-		std::string err_str = "TEST FAILURE, line : ";
-		err_str += std::to_string(line);
-		err_str += ", file : ";
-		err_str += p_file_name;
-
+		std::string err_str = p_file_name;
+		err_str += ":" + std::to_string(line);
 		++tc_err_cnt;
 
-#ifdef SATES_NO_DEPLOY
-		sates::internal_use::test_log::error(err_str);
-#endif
-		
-#ifdef SATES_NO_DEPLOY
-		sates::internal_use::set_stdout_color(sates::internal_use::CONSOLE_COLOR::CONSOLE_COLOR_WHITE,
-			sates::internal_use::CONSOLE_COLOR::CONSOLE_COLOR_BLUE);
-		std::cout << sates::internal_use::get_stdout_color()
+#ifndef SATES_NO_DEPLOY
+		std::cout << err_str << std::endl;
 #else
-		std::cout
-#endif
-			<< err_str << std::endl;
-
-#ifdef SATES_NO_DEPLOY
-		sates::internal_use::clear_stdout_color();
-		sates::internal_use::set_stdout_color(sates::internal_use::CONSOLE_COLOR::CONSOLE_COLOR_WHITE,
-			sates::internal_use::CONSOLE_COLOR::CONSOLE_COLOR_BLACK);
+		sates::tc::tc_result_temporal_storage::add_error(err_str);
 #endif
 	}
 }
