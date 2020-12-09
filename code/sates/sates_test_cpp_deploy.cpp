@@ -9,6 +9,15 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cstring>
+
+#ifdef SATES_WIN
+	#include <Windows.h>
+#endif
+
+#ifdef SATES_LINUX
+	#include <stdlib.h>
+#endif
 
 #ifdef SATES_NO_DEPLOY
 #include <sates/tc/tc_result_temporal_storage.h>
@@ -41,6 +50,50 @@ namespace sates
 	{
 		return _sates_test_help_double_eq;
 	}
+
+#ifdef SATES_WIN
+	void system(const char* p_cmd_line, uint32_t cmd_line_len)
+	{
+		static const uint32_t CMD_LINE_SIZE = 1024U;
+		char cmd_line[1024];
+		std::memset(cmd_line, 0, CMD_LINE_SIZE);
+		uint32_t i = 0U;
+		while (i < cmd_line_len)
+		{
+			cmd_line[i] = p_cmd_line[i];
+			i++;
+		}
+
+		STARTUPINFOA si;
+		PROCESS_INFORMATION pi;
+
+		std::memset(&si, 0, sizeof(si));
+		si.cb = sizeof(si);
+		std::memset(&pi, 0, sizeof(pi));
+
+		CreateProcessA(NULL,   // No module name (use command line)
+			cmd_line,
+			NULL,           // Process handle not inheritable
+			NULL,           // Thread handle not inheritable
+			FALSE,          // Set handle inheritance to FALSE
+			CREATE_NEW_CONSOLE,
+			NULL,           // Use parent's environment block
+			NULL,           // Use parent's starting directory 
+			&si,            // Pointer to STARTUPINFO structure
+			&pi);           // Pointer to PROCESS_INFORMATION structure
+	}
+#endif
+
+#ifdef SATES_LINUX
+	void system(const char* p_cmd_line, uint32_t cmd_line_len)
+	{
+		int32_t retval = ::system(p_cmd_line);
+		if (retval < 0)
+		{
+			std::cout << "void exec(const char* p_cmd_line, uint32_t cmd_line_len) error" << std::endl;
+		}		
+	}
+#endif
 }
 
 static float _sates_test_help_abs(float val)
