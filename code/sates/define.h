@@ -18,7 +18,7 @@
 	#pragma warning( disable : 4251 4996 )
 #endif
 
-#ifdef SATES_LINUX
+#ifndef SATES_WIN
 	#define SATES_EXPORT
 #endif
 

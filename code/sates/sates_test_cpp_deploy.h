@@ -24,7 +24,8 @@
 		SATES_EXPORT float get_float_eq_threshold();
 		SATES_EXPORT double get_double_eq_threshold();
 
-		SATES_EXPORT void system(const char* p_cmd_line, uint32_t cmd_line_len);
+		SATES_EXPORT int64_t process_run(const char* p_cmd_line, uint32_t cmd_line_len);
+		SATES_EXPORT int64_t process_kill(int64_t process_id);
 	}
 #endif 
 

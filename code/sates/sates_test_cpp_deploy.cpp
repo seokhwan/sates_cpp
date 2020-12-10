@@ -51,9 +51,10 @@ namespace sates
 		return _sates_test_help_double_eq;
 	}
 
-#ifdef SATES_WIN
-	void system(const char* p_cmd_line, uint32_t cmd_line_len)
+
+	int64_t process_run(const char* p_cmd_line, uint32_t cmd_line_len)
 	{
+#ifdef SATES_WIN
 		static const uint32_t CMD_LINE_SIZE = 1024U;
 		char cmd_line[1024];
 		std::memset(cmd_line, 0, CMD_LINE_SIZE);
@@ -81,19 +82,30 @@ namespace sates
 			NULL,           // Use parent's starting directory 
 			&si,            // Pointer to STARTUPINFO structure
 			&pi);           // Pointer to PROCESS_INFORMATION structure
-	}
+		return reinterpret_cast<int64_t>(pi.hProcess);
+#elif defined(SATES_LINUX)
+		return static_cast<int64_t>(::system(p_cmd_line));
+#else
+		return 0;
 #endif
+	}
 
-#ifdef SATES_LINUX
-	void system(const char* p_cmd_line, uint32_t cmd_line_len)
+	int64_t process_kill(int64_t process_id)
 	{
-		int32_t retval = ::system(p_cmd_line);
-		if (retval < 0)
+#ifdef SATES_WIN
+		int64_t retval = 0;
+		auto result = TerminateProcess(reinterpret_cast<HANDLE>(process_id), 0U);
+		if (!result)
 		{
-			std::cout << "void exec(const char* p_cmd_line, uint32_t cmd_line_len) error" << std::endl;
-		}		
-	}
+			retval = -1;
+		}
+		return retval;
+#elif defined(SATES_LINUX)
+		return 0;
+#else
+		return 0;
 #endif
+	}
 }
 
 static float _sates_test_help_abs(float val)
