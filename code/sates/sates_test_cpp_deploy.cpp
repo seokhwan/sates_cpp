@@ -16,6 +16,7 @@
 #endif
 
 #ifdef SATES_LINUX
+	#include <unistd.h>
 	#include <stdlib.h>
 #endif
 
@@ -28,6 +29,7 @@ static double _sates_test_help_double_eq = 1E-10;
 
 static uint32_t tc_err_cnt = 0U;
 static uint32_t num_of_tc = 0U;
+
 
 namespace sates
 {
@@ -84,7 +86,20 @@ namespace sates
 			&pi);           // Pointer to PROCESS_INFORMATION structure
 		return reinterpret_cast<int64_t>(pi.hProcess);
 #elif defined(SATES_LINUX)
-		return static_cast<int64_t>(::system(p_cmd_line));
+		int64_t retval = -1;
+        pid_t pid = fork();
+		if (pid == 0)
+		{
+			//execlp("", p_cmd_line, NULL);
+			::system(p_cmd_line);
+		}
+		else
+		{
+			retval = static_cast<int64_t>(pid);
+		}
+		
+		return retval;
+		
 #else
 		return 0;
 #endif
@@ -101,7 +116,21 @@ namespace sates
 		}
 		return retval;
 #elif defined(SATES_LINUX)
-		return 0;
+		std::string str_kill = "kill ";
+		str_kill += std::to_string(process_id + 2);
+		int64_t retval = -1;
+        pid_t pid = fork();
+		if (pid == 0)
+		{
+			//execlp("", p_cmd_line, NULL);
+			::system(str_kill.c_str());
+		}
+		else
+		{
+			retval = static_cast<int64_t>(pid);
+		}
+		
+		return retval;
 #else
 		return 0;
 #endif
