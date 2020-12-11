@@ -16,7 +16,6 @@ SATES_TEST_RUN(TC_PROCESS_RUN_KILL)
     std::this_thread::sleep_for(std::chrono::seconds(1));
     auto result = sates::process_kill(process_id);
     SATES_FALSE(result < 0);
-
 }
 
 

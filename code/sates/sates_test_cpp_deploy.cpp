@@ -10,6 +10,7 @@
 #include <vector>
 #include <string>
 #include <cstring>
+#include <sstream>
 
 #ifdef SATES_WIN
 	#include <Windows.h>
@@ -86,12 +87,45 @@ namespace sates
 			&pi);           // Pointer to PROCESS_INFORMATION structure
 		return reinterpret_cast<int64_t>(pi.hProcess);
 #elif defined(SATES_LINUX)
+		static const int32_t MAX_ARG_NUM = 32;
+		char* char_argv[MAX_ARG_NUM];
+		
+		std::string str_cmd = p_cmd_line;
+		std::istringstream iss(str_cmd);
+		std::vector<std::string> argvec;
+
+		do
+		{
+		 	std::string sub;
+		 	iss >> sub;
+		 	argvec.push_back(sub);
+		} while(iss);
+
+		for (int32_t i=0; i<MAX_ARG_NUM; i++)
+		{
+			char_argv[i] = NULL;
+		}
+
+		size_t j=0U;
+		for (size_t i=0U; i<argvec.size(); i++)
+		{
+			if (argvec[i].length() > 0U)
+			{
+				char_argv[j] = const_cast<char*>(argvec[i].c_str());
+				j++;
+			}
+		}
+
 		int64_t retval = -1;
         pid_t pid = fork();
+		if (pid < 0)
+		{
+			exit(1);
+		}
 		if (pid == 0)
 		{
-			//execlp("", p_cmd_line, NULL);
-			::system(p_cmd_line);
+			::execvp(char_argv[0], char_argv);
+			exit(1);
 		}
 		else
 		{
@@ -117,7 +151,7 @@ namespace sates
 		return retval;
 #elif defined(SATES_LINUX)
 		std::string str_kill = "kill ";
-		str_kill += std::to_string(process_id + 2);
+		str_kill += std::to_string(process_id);
 		int64_t retval = -1;
         pid_t pid = fork();
 		if (pid == 0)

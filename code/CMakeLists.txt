@@ -3,8 +3,6 @@ CMAKE_MINIMUM_REQUIRED(VERSION 3.0)
 project(sates_cpp)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_DEBUG_POSTFIX d)
-#set_property(GLOBAL PROPERTY USE_FOLDERS ON)
-
 
 if(SATES_WIN)
 	add_definitions(-DSATES_WIN) 
@@ -14,7 +12,7 @@ if(SATES_LINUX)
 	add_definitions(-DSATES_LINUX)
 endif()
 
-
+add_definitions(-DSATES_LINUX)
 
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
