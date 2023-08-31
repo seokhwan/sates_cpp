@@ -24,6 +24,8 @@ public:
 	static void exclude_test_case(const char* p_test_case_name);
 
 	static const std::vector<test_case*>* get_runnable_test_cases();
+	static const std::vector<test_case*>* get_runnable_only_enabled_test_cases();
+	static const std::vector<test_case*>* get_runnable_excep_disabled_test_cases();
 
 };
 }

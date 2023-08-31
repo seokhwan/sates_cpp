@@ -1,0 +1,4 @@
+﻿  Building Custom Rule D:/git/seokhwan/sates_cpp/code/test_with_sates_main/CMakeLists.txt
+  test_with_sates_main.cpp
+D:\git\seokhwan\sates_cpp\code\test_with_sates_main\test_with_sates_main.cpp(15,73): warning C4267: 'argument': conversion from 'size_t' to 'uint32_t', possible loss of data
+  test_with_sates_main.vcxproj -> D:\git\seokhwan\sates_cpp\build_win\bin\Debug\test_with_sates_main.exe

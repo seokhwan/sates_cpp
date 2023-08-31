@@ -129,30 +129,39 @@ const std::vector<test_case*>* test_case_list::get_runnable_test_cases()
 	create();
 	runnable_tc_vec.clear();
 
-	if (inc_list.size() > 0U)
+	for (auto iter : (*p_test_case_map))
 	{
-		for (auto iter : inc_list)
-		{
-			runnable_tc_vec.push_back(p_test_case_map->find(iter)->second);
-		}
+		runnable_tc_vec.push_back(iter.second);
 	}
-	else if (exc_list.size() > 0U)
+
+	return &runnable_tc_vec;
+}
+
+const std::vector<test_case*>* test_case_list::get_runnable_only_enabled_test_cases()
+{
+	create();
+	runnable_tc_vec.clear();
+
+	for (auto iter : inc_list)
 	{
-		for (auto iter : (*p_test_case_map))
-		{
-			if (!is_in_the_list(iter.first.c_str(), exc_list))
-			{
-				runnable_tc_vec.push_back(iter.second);
-			}
-		}
+		runnable_tc_vec.push_back(p_test_case_map->find(iter)->second);
 	}
-	else
+	
+	return &runnable_tc_vec;
+}
+const std::vector<test_case*>* test_case_list::get_runnable_excep_disabled_test_cases()
+{
+	create();
+	runnable_tc_vec.clear();
+
+	for (auto iter : (*p_test_case_map))
 	{
-		for (auto iter : (*p_test_case_map))
+		if (!is_in_the_list(iter.first.c_str(), exc_list))
 		{
 			runnable_tc_vec.push_back(iter.second);
 		}
 	}
+
 
 	return &runnable_tc_vec;
 }

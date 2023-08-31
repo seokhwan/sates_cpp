@@ -71,15 +71,31 @@ namespace sates
 			tc::tc_result_list::get_instance()->add_result(result);
 		}
 
-		void tc_runner::run()
+		void run(const std::vector<sates::tc::test_case*>* p_vec)
 		{
-			auto p_vec = tc::test_case_list::get_runnable_test_cases();
 			tc::tc_result_list::get_instance()->mark_tc_started();
 			for (auto p_case : (*p_vec))
 			{
 				run_one_test_case(p_case);
 			}
 			tc::tc_result_list::get_instance()->mark_tc_completed();
+		}
+		void tc_runner::run_all()
+		{
+			auto p_vec = tc::test_case_list::get_runnable_test_cases();
+			run(p_vec);
+		}
+
+		void tc_runner::run_only_enabled()
+		{
+			auto p_vec = tc::test_case_list::get_runnable_only_enabled_test_cases();
+			run(p_vec);
+		}
+
+		void tc_runner::run_except_disabled()
+		{
+			auto p_vec = tc::test_case_list::get_runnable_excep_disabled_test_cases();
+			run(p_vec);
 		}
 	}
 }

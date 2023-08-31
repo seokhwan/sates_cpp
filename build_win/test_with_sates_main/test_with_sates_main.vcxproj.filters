@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\git\seokhwan\sates_cpp\code\test_with_sates_main\test_with_sates_main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\git\seokhwan\sates_cpp\code\test_with_sates_main\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{1AE69CA7-B7F1-362F-896B-510D4C56DA68}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

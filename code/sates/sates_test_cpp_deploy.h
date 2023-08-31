@@ -16,6 +16,8 @@
 		SATES_EXPORT void disable(const char* p_test_name);
 		SATES_EXPORT void init(int argc, const char** argv);
 		SATES_EXPORT void run_all_tests();
+		SATES_EXPORT void run_only_enabled_tests();
+		SATES_EXPORT void run_all_except_disabled_tests();
 		SATES_EXPORT void terminate();
 		SATES_EXPORT void print_result();
 		SATES_EXPORT void set_float_eq_threshold(float val);

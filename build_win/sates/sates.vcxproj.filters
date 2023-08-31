@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\git\seokhwan\sates_cpp\code\sates\sates_test_cpp_deploy.cpp">
+      <Filter>sates</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\git\seokhwan\sates_cpp\code\sates\sates_test_cpp_deploy_internal.cpp">
+      <Filter>sates</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\git\seokhwan\sates_cpp\code\sates\common\arg_parser.cpp">
+      <Filter>sates\common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\git\seokhwan\sates_cpp\code\sates\common\arg_sates_output.cpp">
+      <Filter>sates\common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\git\seokhwan\sates_cpp\code\sates\common\err_proc.cpp">
+      <Filter>sates\common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\git\seokhwan\sates_cpp\code\sates\common\stdout_color.cpp">
+      <Filter>sates\common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\git\seokhwan\sates_cpp\code\sates\tc\tc_result.cpp">
+      <Filter>sates\tc</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\git\seokhwan\sates_cpp\code\sates\tc\tc_result_list.cpp">
+      <Filter>sates\tc</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\git\seokhwan\sates_cpp\code\sates\tc\tc_result_temporal_storage.cpp">
+      <Filter>sates\tc</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\git\seokhwan\sates_cpp\code\sates\tc\test_case.cpp">
+      <Filter>sates\tc</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\git\seokhwan\sates_cpp\code\sates\tc\test_case_list.cpp">
+      <Filter>sates\tc</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\git\seokhwan\sates_cpp\code\sates\tester\tc_run.cpp">
+      <Filter>sates\tester</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\git\seokhwan\sates_cpp\code\sates\report\plain_text_stdout.cpp">
+      <Filter>sates\report</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\git\seokhwan\sates_cpp\code\sates\report\plain_text_writer.cpp">
+      <Filter>sates\report</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\git\seokhwan\sates_cpp\code\sates\report\writer.cpp">
+      <Filter>sates\report</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\git\seokhwan\sates_cpp\code\sates\report\writer_factory.cpp">
+      <Filter>sates\report</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\git\seokhwan\sates_cpp\code\sates\report\xml_writer.cpp">
+      <Filter>sates\report</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\git\seokhwan\sates_cpp\code\sates\define.h">
+      <Filter>sates</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\git\seokhwan\sates_cpp\code\sates\sates.h">
+      <Filter>sates</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\git\seokhwan\sates_cpp\code\sates\sates_test_cpp_deploy.h">
+      <Filter>sates</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\git\seokhwan\sates_cpp\code\sates\common\arg_parser.h">
+      <Filter>sates\common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\git\seokhwan\sates_cpp\code\sates\common\arg_sates_output.h">
+      <Filter>sates\common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\git\seokhwan\sates_cpp\code\sates\common\err_proc.h">
+      <Filter>sates\common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\git\seokhwan\sates_cpp\code\sates\common\stdout_color.h">
+      <Filter>sates\common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\git\seokhwan\sates_cpp\code\sates\tc\tc_result.h">
+      <Filter>sates\tc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\git\seokhwan\sates_cpp\code\sates\tc\tc_result_list.h">
+      <Filter>sates\tc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\git\seokhwan\sates_cpp\code\sates\tc\tc_result_temporal_storage.h">
+      <Filter>sates\tc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\git\seokhwan\sates_cpp\code\sates\tc\test_case.h">
+      <Filter>sates\tc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\git\seokhwan\sates_cpp\code\sates\tc\test_case_gen.h">
+      <Filter>sates\tc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\git\seokhwan\sates_cpp\code\sates\tc\test_case_list.h">
+      <Filter>sates\tc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\git\seokhwan\sates_cpp\code\sates\tester\tc_run.h">
+      <Filter>sates\tester</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\git\seokhwan\sates_cpp\code\sates\report\plain_text_stdout.h">
+      <Filter>sates\report</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\git\seokhwan\sates_cpp\code\sates\report\plain_text_writer.h">
+      <Filter>sates\report</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\git\seokhwan\sates_cpp\code\sates\report\writer.h">
+      <Filter>sates\report</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\git\seokhwan\sates_cpp\code\sates\report\writer_factory.h">
+      <Filter>sates\report</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\git\seokhwan\sates_cpp\code\sates\report\xml_writer.h">
+      <Filter>sates\report</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\git\seokhwan\sates_cpp\code\sates\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="sates">
+      <UniqueIdentifier>{A21B121E-B77B-36D3-81E3-73B0247AF5F4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sates\common">
+      <UniqueIdentifier>{F794B57B-08A6-313A-9EDE-44E9671E09E5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sates\report">
+      <UniqueIdentifier>{A9CF23B2-2D72-3CCF-B10F-697BDB52FB5C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sates\tc">
+      <UniqueIdentifier>{69478D2F-87ED-3646-A6B1-01AACE3DBA7F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sates\tester">
+      <UniqueIdentifier>{AE7F7C6E-A6BC-3CB6-B316-AD10C8400FFF}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -29,8 +29,18 @@ namespace sates
     }
     void run_all_tests()
     {
-        sates::tester::tc_runner::run();
+        sates::tester::tc_runner::run_all();
     }
+
+    void run_only_enabled_tests()
+    {
+
+    }
+    void run_all_except_disabled_tests()
+    {
+
+    }
+
     void terminate()
     {
     }

@@ -1,0 +1,12 @@
+D:/git/seokhwan/sates_cpp/build_win/CMakeFiles/ALL_BUILD.dir
+D:/git/seokhwan/sates_cpp/build_win/CMakeFiles/ZERO_CHECK.dir
+D:/git/seokhwan/sates_cpp/build_win/sates/CMakeFiles/sates.dir
+D:/git/seokhwan/sates_cpp/build_win/sates/CMakeFiles/ALL_BUILD.dir
+D:/git/seokhwan/sates_cpp/build_win/sates_main/CMakeFiles/sates_main.dir
+D:/git/seokhwan/sates_cpp/build_win/sates_main/CMakeFiles/ALL_BUILD.dir
+D:/git/seokhwan/sates_cpp/build_win/test_with_sates_main/CMakeFiles/test_with_sates_main.dir
+D:/git/seokhwan/sates_cpp/build_win/test_with_sates_main/CMakeFiles/ALL_BUILD.dir
+D:/git/seokhwan/sates_cpp/build_win/test_without_sates_main/CMakeFiles/test_without_sates_main.dir
+D:/git/seokhwan/sates_cpp/build_win/test_without_sates_main/CMakeFiles/ALL_BUILD.dir
+D:/git/seokhwan/sates_cpp/build_win/test_for_deploy/CMakeFiles/test_for_deploy.dir
+D:/git/seokhwan/sates_cpp/build_win/test_for_deploy/CMakeFiles/ALL_BUILD.dir

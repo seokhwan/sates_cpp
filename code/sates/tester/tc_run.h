@@ -18,7 +18,9 @@ namespace tester
 class SATES_EXPORT tc_runner
 {
 public:
-    static void run();
+    static void run_all();
+    static void run_only_enabled();
+    static void run_except_disabled();
 };
 }
 }
