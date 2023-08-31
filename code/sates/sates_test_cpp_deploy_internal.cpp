@@ -34,11 +34,11 @@ namespace sates
 
     void run_only_enabled_tests()
     {
-
+        sates::tester::tc_runner::run_only_enabled();
     }
     void run_all_except_disabled_tests()
     {
-
+        sates::tester::tc_runner::run_except_disabled();
     }
 
     void terminate()
